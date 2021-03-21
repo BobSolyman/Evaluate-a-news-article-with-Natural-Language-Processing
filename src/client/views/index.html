@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Sentiment Analyzer</title>
+  </head>
+
+  <body>
+    <header>
+      <h3 class="">powered by MeaningCloud.</h3>
+    </header>
+
+    <main>
+      <section class="container">
+        <h1 style="text-align: center">Article sentiment analyzer</h1>
+        <form id="form" onsubmit="return Client.handleSubmit(event)">
+          <label for="articleUrl">Article URL:</label>
+          <input
+            id="articleUrl"
+            type="text"
+            name="input"
+            value=""
+            placeholder="Enter your article URL here"
+          />
+          <input
+            type="submit"
+            class="btn-submit"
+            id="btn-submit"
+            value="submit"
+            onsubmit="return Client.handleSubmit(event)"
+            onclick="return Client.handleSubmit(event)"
+          />
+        </form>
+      </section>
+
+      <section style="text-align: center">
+        <strong>Form Results:</strong>
+        <div id="agreement"></div>
+        <div id="subjectivity"></div>
+        <div id="confidence"></div>
+        <div id="irony"></div>
+        <div id="score_tag"></div>
+      </section>
+    </main>
+    <script>
+      // Check that service workers are supported
+      if ("serviceWorker" in navigator) {
+        // Use the window load event to keep the page load performant
+        window.addEventListener("load", () => {
+          navigator.serviceWorker.register("/service-worker.js")
+        })
+      }
+    </script>
+
+    <footer>
+      <p style="text-align: right">Created by Shehab Solyman</p>
+    </footer>
+  </body>
+</html>
